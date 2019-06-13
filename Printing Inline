@@ -1,0 +1,9 @@
+#taking input from the user
+num = int(input())
+
+#printing the numbers between i to num on the screen.
+#we use the argument end='' to tell python to not print the next value to the next line.
+for i in range(1,num+1):
+    print(i, end = '')
+    
+
