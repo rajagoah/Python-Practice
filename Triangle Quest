@@ -1,0 +1,10 @@
+#taking input from user
+num = int(input())
+#declaring the variable i
+i = 1
+#writing loop for printing triangle
+while i < num:
+    print()
+    for j in range(0,i):
+        print(i, end = '')
+    i = i + 1
