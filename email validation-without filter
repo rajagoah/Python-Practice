@@ -1,0 +1,57 @@
+#importing reg ex
+import re
+#checking if the user name follows the defined rules
+#storing the email id in the var
+
+def validation(email):
+    #carrying out initial validation
+    print(email)
+    if email.count("@") > 1:
+        print("cannot contain more than 1 @")
+
+    if email.count(".") > 1:
+        print("cannot contain more than 1 .")
+
+    if ' ' in email:
+        print("cannot contain spaces")
+
+    #extracting the user name
+    email.split('@')
+    user_name = email.split('@')[0]
+    print(user_name)
+
+    #conditional checks for username
+    if re.search('[;:*()#$%[\]/\\\'\",.!~` {}|?]', user_name) != None:
+        print('Invalid username')
+    else:
+        print('valid username')
+
+    #extracting the website name
+    web = email.split('@')[1]
+    web.split('.')
+    website = web.split('.')[0]
+
+    print(website)
+    #conditional checks for website
+    if re.search('[;:*()#$%[\]/\\\'\",.!~` {}|?-_]', website) != None:
+        print('Invalid website')
+    else:
+        print('Valid website')
+
+    #extracting the domain name.
+    email.split('.')
+    domain = email.split('.')[1]
+
+    print(domain)
+
+    if len(domain) <= 3:
+        print("valid domain")
+        return True
+    else:
+        print("invalid domain")
+
+
+if validation('gc aakarsh@gm*ail.coml') == True:
+    print('valid email id')
+else:
+    print('invalid email id')
