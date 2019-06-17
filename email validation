@@ -3,43 +3,52 @@ import re
 def fun(emails):
     #using  the filter function to carry out basic checks
     fil = []
-    fil_2 = []
-    fil_3 = []
-    fil_4 = []
-    fil_5 = []
-    fil_6 = []
+    fil_1 = []
 
-    for i in emails:
-        i = list(filter(lambda emails: emails.count('@') == 1, emails))
-        fil = i
+    if emails.count('@',0,len(emails)) == 1:
+        # print('1')
+        if emails.count('.',0,len(emails)) == 1:
+            # print('2')
+            if emails.count(' ',0,len(emails)) == 0:
+                # print('3')
+                #extracting the user name
+                emails.split('@')
+                user_name = emails.split('@')[0]
+                # print('username >', user_name)
+                if re.search('[;:*()#$%[\]/\\\'\",.!~` {}|?]', user_name) == None and len(user_name) >= 1:
+                    # print('4')
+                    #extracting the website name
+                    web = emails.split('@')[1]
+                    web.split('.')
+                    website = web.split('.')[0]
+                    if re.search('[;:*()#$%[\]/\\\'\",.!~` {}|?-_]', website) == None:
+                        # print('5')
+                        #extracting the domain name.
+                        emails.split('.')
+                        domain = emails.split('.')[1]
+                        if re.search('[;:*()#$%[\]/\\\'\",.!~` {}|?]', domain) == None and len(domain) <= 3:
+                            # print('6')
+                            fil.append(emails)
+                            # print(fil)
+                            return fil
+            elif emails.count(' ',0,len(emails)) > 0:
+                return False
+        elif emails.count('.',0,len(emails)) > 1:
+            return False
+    elif emails.count('@',0,len(emails)) == 0:
+        return False
 
-    for i in fil:
-        i = list(filter(lambda fil: fil.count('.') == 1, fil))
-        fil_2 = i
+# # # #
+def filter_mail(emails):
+    return list(filter(fun, emails))
 
-    for i in fil_2:
-        i = list(filter(lambda fil_2: ' ' not in fil_2, fil_2))
-        fil_3 = i
+if __name__ == '__main__':
+    n = int(input("enter the number of emails you want to verify>> "))
+    #declaring the email list
+    emails = []
+    for _ in range(n):
+        emails.append(input("enter emails you want to verify>>  "))
 
-    for i in fil_3:
-        #extracting the user name
-        i.split('@')
-        user_name = i.split('@')[0]
-        fil_4 = list(filter(lambda user_name: re.search('[;:*()#$%[\]/\\\'\",.!~` {}|?]', user_name), user_name))
-
-        #extracting the website name
-        web = i.split('@')[1]
-        web.split('.')
-        website = web.split('.')[0]
-        fil_5 = list(filter(lambda website: re.search('[;:*()#$%[\]/\\\'\",.!~` {}|?]', website), website))
-
-        #extracting the domain name.
-        i.split('.')
-        domain = i.split('.')[1]
-        fil_6 = list(filter(lambda domain: re.search('[;:*()#$%[\]/\\\'\",.!~` {}|?]', domain), domain))
-
-    return fil_3
-
-emails = ['3','lara@hackerrank.com','brian-23@hackerrank.com','britts_54@hackerrank.com']
-
-print(fun(emails))
+filtered_emails = filter_mail(emails)
+filtered_emails.sort()
+print('filtered emails',filtered_emails)
