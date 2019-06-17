@@ -3,7 +3,6 @@ import re
 def fun(emails):
     #using  the filter function to carry out basic checks
     fil = []
-    fil_1 = []
 
     if emails.count('@',0,len(emails)) == 1:
         # print('1')
