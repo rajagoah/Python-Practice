@@ -9,16 +9,16 @@ the following are the functinos written:
 
 NOTES:
 1. split() --> this function will allow to split a string in to it's individual elements based on a particular separator.
-    syntax is: str.split(<separtor>,<maxsplit>)
-    <separtor> is the delimiter
-    <maxsplit> is the number of constituent parts we wish to split. default is unlimited. this argument is optional
+    syntax is: str.split(SEPARATOR, MAXSPLIT)
+    SEPARATOR is the delimiter
+    MAXSPLIT is the number of constituent parts we wish to split. default is unlimited. this argument is optional
  
- 2. print(<text to print>, end = '') --> The second argument allows us to print texts inline.
+ 2. print(TEXT TO PRINT, end = '') --> The second argument allows us to print texts inline.
   
  3. map() --> This function allows applying functions to a list or other iterable.
-     syntax is: map(<function>,<list>)
-     <function> is any function like split() or a user defined function
-     <list> is any iterable [1,2,3] or ('aakarsh','rajagopalan')
+     syntax is: map(FUNCTION, LIST)
+     FUNCTION is any function like split() or a user defined function
+     LIST is any iterable [1,2,3] or ('aakarsh','rajagopalan')
  
   
   
