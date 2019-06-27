@@ -1,0 +1,17 @@
+#asking for user input
+a = list(map(int, input('enter your list').split(',')))
+
+#removing duplicate elements in a list
+final_list = []
+for i in a:
+    if i not in final_list:
+        final_list.append(i)
+
+#sorting the list in descending order
+final_list.sort(reverse = True)
+
+#conditional check to output the correct result.
+if len(final_list) == 1:
+    print(final_list)
+elif len(final_list) > 1:
+    print(final_list[1])
